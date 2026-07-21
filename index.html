@@ -487,6 +487,7 @@
   --neon:#ff4fd8;--neon-dim:oklch(0.52 0.16 350);--blue:oklch(0.72 0.13 240);
   --bd:oklch(0.32 0.006 60);--brick:oklch(0.62 0.15 25);--olive:oklch(0.66 0.09 145);
   --glow:0 0 22px oklch(0.70 0.22 350 / .40);
+  --curtain:#7c1f2e;
  }
  *{box-sizing:border-box}
  body{margin:0;background:#e7e3da;color:#1a1917;font-family:'Hanken Grotesk',system-ui,sans-serif;line-height:1.5}
@@ -534,7 +535,17 @@
  .glow{box-shadow:var(--glow)}
  .btn-sec{border:1px solid var(--tx);color:var(--tx);border-radius:8px;padding:11px 0;text-align:center;font-size:14px;background:transparent}
  .btn-brick{border:1px solid var(--brick);color:var(--brick);border-radius:8px;padding:11px 0;text-align:center;font-size:14px;background:transparent}
-</style><style>*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}</style></head>
+ @keyframes odot-pulse{0%,100%{opacity:1;box-shadow:var(--glow)}50%{opacity:.55;box-shadow:0 0 8px oklch(0.70 0.22 350 / .22)}}
+ .odot:not(.dormant){animation:odot-pulse 2.2s cubic-bezier(.45,0,.55,1) infinite}
+ @keyframes t0-pre{0%,28%{opacity:1}38%,100%{opacity:0}}
+ .t0-pre{animation:t0-pre 4.5s cubic-bezier(.16,1,.3,1) infinite}
+ @keyframes t0-post{0%,28%{opacity:0;transform:scale(.94)}40%{opacity:1;transform:scale(1)}86%{opacity:1;transform:scale(1)}96%,100%{opacity:0;transform:scale(.94)}}
+ .t0-post{animation:t0-post 4.5s cubic-bezier(.16,1,.3,1) infinite}
+ @keyframes liner-arrive{0%,8%{opacity:0;transform:translateY(4px)}20%,100%{opacity:1;transform:translateY(0)}}
+ .liner.arrive{animation:liner-arrive 4s cubic-bezier(.22,1,.36,1) infinite}
+ @keyframes tele-breathe{0%,100%{opacity:.55}50%{opacity:1}}
+ .telescope-mark{animation:tele-breathe 2.6s ease-in-out infinite}
+</style><style>@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}}</style></head>
 <body data-om-frame-wrap="">
 
 <div id="dc-root" data-om-frame-wrap=""><div class="sc-host" data-sc-name="Selekt Wireframes (standalone)-print-exhk7l" data-om-frame-wrap=""><section data-dc-tpl="6" class="dv-turn" id="t1" data-om-frame="">
@@ -606,16 +617,33 @@
 
   
   <div data-dc-tpl="123" class="dv-opt" id="1d">
-   <div data-dc-tpl="124" class="dv-olabel"><a data-dc-tpl="125" class="dv-oid" href="#1d">1d</a> The live beats — arrival · intermission · Telestrator · reel change</div>
+   <div data-dc-tpl="124" class="dv-olabel"><a data-dc-tpl="125" class="dv-oid" href="#1d">1d</a> The live beats — T-0 · arrival · intermission · Telestrator · reel change</div>
    <div data-dc-tpl="126" style="display: flex; gap: 40px; flex-wrap: wrap;">
 
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+     <span class="nlabel">① T-0 — the house goes dark</span>
+     <div class="ph" style="height: 520px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
+      <div class="sb"><span class="mono">8:00</span><span>selekt</span><span class="mono">▮▮</span></div>
+      <div class="scr" style="background: var(--curtain); position: relative; justify-content: center; align-items: center; text-align: center; overflow: hidden;">
+       <div style="position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: rgba(0,0,0,.35);"></div>
+       <div style="position: relative; z-index: 1; padding: 0 22px;">
+        <div class="mono t0-pre" style="font-size: 10px; letter-spacing: 0.16em; color: rgba(242,237,228,.55); margin-bottom: 16px;">T&#8209;0</div>
+        <div class="t0-post">
+         <span class="onair" style="justify-content: center; font-size: 15px; letter-spacing: 0.2em;"><span class="odot"></span>ON AIR</span>
+         <div class="serif" style="font-size: 13.5px; line-height: 1.6; color: rgba(242,237,228,.88); max-width: 210px; margin: 18px auto 0;">The house goes dark. The sign ignites. Every note fires from this clock.</div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+
     <div data-dc-tpl="127" style="display: flex; flex-direction: column; gap: 8px;">
-     <span data-dc-tpl="128" class="nlabel">① Liner Note arrives</span>
+     <span data-dc-tpl="128" class="nlabel">② Liner Note arrives</span>
      <div data-dc-tpl="129" class="ph" style="height: 520px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
       <div data-dc-tpl="130" class="sb"><span data-dc-tpl="131" class="mono">8:47</span><span data-dc-tpl="132">selekt</span><span data-dc-tpl="133" class="mono">▮▮</span></div>
       <div data-dc-tpl="134" class="scr night">
        <div data-dc-tpl="135" style="flex: 1 1 0%; display: flex; flex-direction: column; justify-content: center; padding: 0px 18px;">
-        <div data-dc-tpl="136" class="liner now" style="background: var(--s2);"><div data-dc-tpl="137" class="row" style="gap: 7px; margin-bottom: 6px;"><span data-dc-tpl="138" style="font-weight: 500; font-size: 12px;">Naomi</span><span data-dc-tpl="139" class="mono mut" style="font-size: 10px;">0:47</span></div><div data-dc-tpl="140" class="serif" style="font-size: 17px; line-height: 1.55;">Watch the clock on the wall.</div></div>
+        <div data-dc-tpl="136" class="liner now arrive" style="background: var(--s2);"><div data-dc-tpl="137" class="row" style="gap: 7px; margin-bottom: 6px;"><span data-dc-tpl="138" style="font-weight: 500; font-size: 12px;">Naomi</span><span data-dc-tpl="139" class="mono mut" style="font-size: 10px;">0:47</span></div><div data-dc-tpl="140" class="serif" style="font-size: 17px; line-height: 1.55;">Watch the clock on the wall.</div></div>
        </div>
        <div data-dc-tpl="141" style="text-align: center; padding: 14px;"><span data-dc-tpl="142" class="mono mut" style="font-size: 10px;">fades up 4px · soft haptic tap · no badge</span></div>
       </div>
@@ -623,7 +651,7 @@
     </div>
 
     <div data-dc-tpl="143" style="display: flex; flex-direction: column; gap: 8px;">
-     <span data-dc-tpl="144" class="nlabel">② Intermission — the lobby</span>
+     <span data-dc-tpl="144" class="nlabel">③ Intermission — the lobby</span>
      <div data-dc-tpl="145" class="ph" style="height: 520px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
       <div data-dc-tpl="146" class="sb"><span data-dc-tpl="147" class="mono">8:55</span><span data-dc-tpl="148">selekt</span><span data-dc-tpl="149" class="mono">▮▮</span></div>
       <div data-dc-tpl="150" class="scr" style="align-items: center; justify-content: center; text-align: center; padding: 26px;">
@@ -637,13 +665,13 @@
     </div>
 
     <div data-dc-tpl="156" style="display: flex; flex-direction: column; gap: 8px;">
-     <span data-dc-tpl="157" class="nlabel">③ Telestrator — the telescope</span>
+     <span data-dc-tpl="157" class="nlabel">④ Telestrator — the telescope</span>
      <div data-dc-tpl="158" class="ph" style="height: 520px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
       <div data-dc-tpl="159" class="sb"><span data-dc-tpl="160" class="mono">8:58</span><span data-dc-tpl="161">selekt</span><span data-dc-tpl="162" class="mono">▮▮</span></div>
       <div data-dc-tpl="163" class="scr night" style="justify-content: center; padding: 16px;">
        <div data-dc-tpl="164" class="onair" style="justify-content: center; margin-bottom: 12px;">the curator is looking here</div>
        <div data-dc-tpl="165" class="box" style="height: 170px; border-color: var(--bd); color: var(--mut); position: relative; overflow: hidden; background: rgb(13, 15, 24);">film still
-        <svg data-dc-tpl="166" viewBox="0 0 100 60" style="position: absolute; inset: 0px; width: 100%; height: 100%;"><ellipse data-dc-tpl="167" cx="36" cy="30" rx="15" ry="12" fill="none" stroke="#ff4fd8" stroke-width="1.4"></ellipse><path data-dc-tpl="168" d="M53 29 L76 21" stroke="#ff4fd8" stroke-width="1.4" fill="none"></path><path data-dc-tpl="169" d="M72 19 l5 1 -1 5" stroke="#ff4fd8" stroke-width="1.4" fill="none"></path></svg>
+        <svg data-dc-tpl="166" class="telescope-mark" viewBox="0 0 100 60" style="position: absolute; inset: 0px; width: 100%; height: 100%;"><ellipse data-dc-tpl="167" cx="36" cy="30" rx="15" ry="12" fill="none" stroke="#ff4fd8" stroke-width="1.4"></ellipse><path data-dc-tpl="168" d="M53 29 L76 21" stroke="#ff4fd8" stroke-width="1.4" fill="none"></path><path data-dc-tpl="169" d="M72 19 l5 1 -1 5" stroke="#ff4fd8" stroke-width="1.4" fill="none"></path></svg>
        </div>
        <div data-dc-tpl="170" class="row" style="justify-content: space-between; margin-top: 14px;"><span data-dc-tpl="171" class="mono mut" style="font-size: 10px;">releases when Naomi does</span><span data-dc-tpl="172" class="chip">minimize</span></div>
       </div>
@@ -651,7 +679,7 @@
     </div>
 
     <div data-dc-tpl="173" style="display: flex; flex-direction: column; gap: 8px;">
-     <span data-dc-tpl="174" class="nlabel">④ Reel change (resync + away)</span>
+     <span data-dc-tpl="174" class="nlabel">⑤ Reel change (resync + away)</span>
      <div data-dc-tpl="175" class="ph" style="height: 520px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
       <div data-dc-tpl="176" class="sb"><span data-dc-tpl="177" class="mono">9:10</span><span data-dc-tpl="178">selekt</span><span data-dc-tpl="179" class="mono">▮▮</span></div>
       <div data-dc-tpl="180" class="scr night">
@@ -667,7 +695,7 @@
     </div>
 
    </div>
-   <p data-dc-tpl="195" class="anno">The signature is T-0 (a hard cut to night + the ON AIR sign igniting). Notes fade up like subtitles. Intermission is the lobby — mono numerals, no glow, beautiful and empty. Desync is never a failure, it's a reel change.</p>
+   <p data-dc-tpl="195" class="anno">The signature is T-0 — the curtain closes to oxblood, then the ON AIR sign ignites through it. Notes fade up like subtitles. Intermission is the lobby — mono numerals, no glow, beautiful and empty. Desync is never a failure, it's a reel change.</p>
   </div>
 
   
@@ -750,7 +778,7 @@
       </div>
       <div data-dc-tpl="310">
        <div data-dc-tpl="311" class="mono mut" style="font-size: 10px; letter-spacing: 0.08em;">THIS WEEK</div>
-       <div data-dc-tpl="312" class="row" style="justify-content: space-between; margin-top: 10px;"><div data-dc-tpl="313" class="row"><div data-dc-tpl="314" class="box" style="width: 32px; height: 44px; border-style: solid;"></div><div data-dc-tpl="315"><div data-dc-tpl="316" style="font-size: 12.5px;">Paris, Texas</div><div data-dc-tpl="317" class="mono mut" style="font-size: 10px;">SAT 8PM · LEO</div></div></div><span data-dc-tpl="318" class="chip mut">remind</span></div>
+       <div data-dc-tpl="312" class="row" style="justify-content: space-between; margin-top: 10px; align-items: flex-start;"><div data-dc-tpl="313" class="row" style="align-items: flex-start;"><div data-dc-tpl="314" class="box" style="width: 32px; height: 44px; border-style: solid;"></div><div data-dc-tpl="315"><div data-dc-tpl="316" style="font-size: 12.5px;">Road House</div><div data-dc-tpl="317" class="mono mut" style="font-size: 10px;">FRI 8PM · LEO</div><div class="serif mut" style="font-size: 11px; line-height: 1.45; margin-top: 4px; max-width: 175px;">"Dalton doesn't walk into a bar. He reclassifies it as a crime scene." — Leo</div></div></div><span data-dc-tpl="318" class="chip mut">remind</span></div>
       </div>
      </div>
      <div data-dc-tpl="319" class="tab"><span data-dc-tpl="320"><b data-dc-tpl="321">Marquee</b></span><span data-dc-tpl="322">Roster</span><span data-dc-tpl="323">◎</span><span data-dc-tpl="324">Notes</span><span data-dc-tpl="325">You</span></div>
