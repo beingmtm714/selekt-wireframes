@@ -487,7 +487,7 @@
   --neon:#ff4fd8;--neon-dim:oklch(0.52 0.16 350);--blue:oklch(0.72 0.13 240);
   --bd:oklch(0.32 0.006 60);--brick:oklch(0.62 0.15 25);--olive:oklch(0.66 0.09 145);
   --glow:0 0 22px oklch(0.70 0.22 350 / .40);
-  --curtain:#7c1f2e;
+  --curtain:#7c1f2e;--marquee-silver:#eaeef3;--marquee-glow:0 0 20px rgba(234,238,243,.6),0 0 44px rgba(234,238,243,.28);
  }
  *{box-sizing:border-box}
  body{margin:0;background:#e7e3da;color:#1a1917;font-family:'Hanken Grotesk',system-ui,sans-serif;line-height:1.5}
@@ -537,10 +537,24 @@
  .btn-brick{border:1px solid var(--brick);color:var(--brick);border-radius:8px;padding:11px 0;text-align:center;font-size:14px;background:transparent}
  @keyframes odot-pulse{0%,100%{opacity:1;box-shadow:var(--glow)}50%{opacity:.55;box-shadow:0 0 8px oklch(0.70 0.22 350 / .22)}}
  .odot:not(.dormant){animation:odot-pulse 2.2s cubic-bezier(.45,0,.55,1) infinite}
- @keyframes t0-pre{0%,28%{opacity:1}38%,100%{opacity:0}}
- .t0-pre{animation:t0-pre 4.5s cubic-bezier(.16,1,.3,1) infinite}
- @keyframes t0-post{0%,28%{opacity:0;transform:scale(.94)}40%{opacity:1;transform:scale(1)}86%{opacity:1;transform:scale(1)}96%,100%{opacity:0;transform:scale(.94)}}
- .t0-post{animation:t0-post 4.5s cubic-bezier(.16,1,.3,1) infinite}
+ @keyframes odot-pulse-silver{0%,100%{opacity:1;box-shadow:var(--marquee-glow)}50%{opacity:.6;box-shadow:0 0 10px rgba(234,238,243,.25)}}
+ .onair.silver{color:var(--marquee-silver)}
+ .onair.silver .odot{background:var(--marquee-silver);animation:odot-pulse-silver 2.2s cubic-bezier(.45,0,.55,1) infinite}
+ .marqbd{background:#14110b;border:1px solid #453a26;border-radius:10px;padding:12px 10px;text-align:center;overflow:hidden}
+ .marqt{font-family:'Archivo Expanded',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.05em;line-height:1.12;color:#f4e4bc;text-shadow:0 0 14px rgba(244,228,188,.30)}
+ .marqsub{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.15em;color:#b8a77f;text-transform:uppercase}
+ .bulbs{height:5px;background-image:radial-gradient(circle at 4px 2.5px,rgba(244,228,188,.85) 0 1.5px,rgba(244,228,188,.15) 2.4px,transparent 3px);background-size:13px 5px;background-repeat:repeat-x;animation:bulb-chase 1.4s steps(2) infinite}
+ @keyframes bulb-chase{to{background-position-x:13px}}
+ .filmtag{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:8px;letter-spacing:.12em;color:var(--mut);text-transform:uppercase}
+ .toast{position:absolute;top:36px;left:10px;right:10px;background:rgba(22,21,26,.97);border:1px solid #453a26;border-radius:12px;padding:9px 12px;z-index:9;box-shadow:0 10px 26px rgba(0,0,0,.55);animation:toast-in 5s cubic-bezier(.22,1,.36,1) infinite}
+ @keyframes toast-in{0%,6%{opacity:0;transform:translateY(-8px)}14%,86%{opacity:1;transform:translateY(0)}94%,100%{opacity:0;transform:translateY(-8px)}}
+ .sweep{transform-origin:50% 50%;animation:sweep-rot 1s linear infinite}
+ @keyframes sweep-rot{to{transform:rotate(360deg)}}
+ .curt{position:absolute;top:0;bottom:0;width:58%;z-index:6;background:repeating-linear-gradient(90deg,#7c1f2e 0 11px,#5c131c 11px 21px)}
+ .curtL{left:0;box-shadow:inset -14px 0 18px -10px rgba(0,0,0,.6);animation:curt-l 7s cubic-bezier(.22,1,.36,1) infinite}
+ .curtR{right:0;box-shadow:inset 14px 0 18px -10px rgba(0,0,0,.6);animation:curt-r 7s cubic-bezier(.22,1,.36,1) infinite}
+ @keyframes curt-l{0%,18%{transform:translateX(0)}46%,88%{transform:translateX(-93%)}98%,100%{transform:translateX(0)}}
+ @keyframes curt-r{0%,18%{transform:translateX(0)}46%,88%{transform:translateX(93%)}98%,100%{transform:translateX(0)}}
  @keyframes liner-arrive{0%,8%{opacity:0;transform:translateY(4px)}20%,100%{opacity:1;transform:translateY(0)}}
  .liner.arrive{animation:liner-arrive 4s cubic-bezier(.22,1,.36,1) infinite}
  @keyframes tele-breathe{0%,100%{opacity:.55}50%{opacity:1}}
@@ -550,7 +564,7 @@
 
 <div id="dc-root" data-om-frame-wrap=""><div class="sc-host" data-sc-name="Selekt Wireframes (standalone)-print-exhk7l" data-om-frame-wrap=""><section data-dc-tpl="6" class="dv-turn" id="t1" data-om-frame="">
  <div data-dc-tpl="7" class="dv-thd"><a data-dc-tpl="8" class="dv-tid" href="#t1">1</a><span data-dc-tpl="9" class="dv-tname">Selekt — on the design language</span></div>
- <p data-dc-tpl="10" class="dv-sub">Rebuilt on <a data-dc-tpl="11" href="#">DESIGN.md</a>. Dark screening-room theme; neon is <em data-dc-tpl="12">light, not paint</em> (electric magenta = the live signal, rationed). Two temperatures: resting screens read like a black-and-white art film; live screens are an LA night. Archivo for title-cards, Switzer for UI, <span data-dc-tpl="13" class="serif">Source Serif for Liner Notes — the curator's voice</span>, JetBrains Mono for timecode. The Room is explored three ways (<a data-dc-tpl="14" href="#1a">1a</a>–<a data-dc-tpl="15" href="#1c">1c</a>); live beats in <a data-dc-tpl="16" href="#1d">1d</a>; resting surfaces <a data-dc-tpl="17" href="#1e">1e</a>–<a data-dc-tpl="18" href="#1j">1j</a>.</p>
+ <p data-dc-tpl="10" class="dv-sub">Rebuilt on <a data-dc-tpl="11" href="#">DESIGN.md</a>. Dark screening-room theme; neon is <em data-dc-tpl="12">light, not paint</em> (electric magenta = the live signal, rationed). Two temperatures: resting screens read like a black-and-white art film; live screens are an LA night. Archivo for title-cards, Switzer for UI, <span data-dc-tpl="13" class="serif">Source Serif for Liner Notes — the curator's voice</span>, JetBrains Mono for timecode. The Room is explored three ways (<a data-dc-tpl="14" href="#1a">1a</a>–<a data-dc-tpl="15" href="#1c">1c</a>); the pre-show + live beats in <a data-dc-tpl="16" href="#1d">1d</a>; resting surfaces <a data-dc-tpl="17" href="#1e">1e</a>–<a data-dc-tpl="18" href="#1j">1j</a>.</p>
  <div data-dc-tpl="19" class="dv-opts">
 
   
@@ -559,7 +573,7 @@
    <div data-dc-tpl="23" class="ph" style="filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
     <div data-dc-tpl="24" class="sb"><span data-dc-tpl="25" class="mono">8:47</span><span data-dc-tpl="26">selekt</span><span data-dc-tpl="27" class="mono">▮▮</span></div>
     <div data-dc-tpl="28" class="scr night">
-     <div data-dc-tpl="29" class="hb row" style="padding: 9px 14px; justify-content: space-between;"><span data-dc-tpl="30" class="onair"><span data-dc-tpl="31" class="odot"></span>ON AIR</span><span data-dc-tpl="32" class="mono blue" style="font-size: 11px;">0:47:12 · synced</span></div>
+     <div data-dc-tpl="29" class="hb row" style="padding: 9px 14px; justify-content: space-between;"><span data-dc-tpl="30" class="onair"><span data-dc-tpl="31" class="odot"></span>ON AIR</span><div style="text-align: right;"><span data-dc-tpl="32" class="mono blue" style="font-size: 11px;">0:47:12 · synced</span><div class="filmtag">In the Mood for Love</div></div></div>
      <div data-dc-tpl="33" style="flex: 1 1 0%; overflow: hidden; padding: 12px 14px; display: flex; flex-direction: column; gap: 12px;">
       <div data-dc-tpl="34" class="liner" style="opacity: 0.5;"><div data-dc-tpl="35" class="row" style="gap: 7px; margin-bottom: 5px;"><span data-dc-tpl="36" style="font-weight: 500; font-size: 12px;">Naomi</span><span data-dc-tpl="37" class="mono mut" style="font-size: 10.5px;">0:31:04</span></div><div data-dc-tpl="38" class="serif" style="font-size: 15px; line-height: 1.55;">The hallway is shot the same way every time — she wants you to feel the repetition.</div></div>
       <div data-dc-tpl="39" class="row" style="gap: 7px;"><span data-dc-tpl="40" class="mono mut" style="font-size: 10.5px;">mona</span><span data-dc-tpl="41" class="ln" style="width: 52%;"></span></div>
@@ -583,7 +597,7 @@
    <div data-dc-tpl="62" class="ph" style="filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
     <div data-dc-tpl="63" class="sb"><span data-dc-tpl="64" class="mono">8:47</span><span data-dc-tpl="65">selekt</span><span data-dc-tpl="66" class="mono">▮▮</span></div>
     <div data-dc-tpl="67" class="scr night">
-     <div data-dc-tpl="68" class="row" style="padding: 12px 16px; justify-content: space-between;"><span data-dc-tpl="69" class="onair"><span data-dc-tpl="70" class="odot"></span>ON AIR</span><span data-dc-tpl="71" class="mono blue" style="font-size: 11px;">0:47:12</span></div>
+     <div data-dc-tpl="68" class="row" style="padding: 12px 16px; justify-content: space-between;"><span data-dc-tpl="69" class="onair"><span data-dc-tpl="70" class="odot"></span>ON AIR</span><div style="text-align: right;"><span data-dc-tpl="71" class="mono blue" style="font-size: 11px;">0:47:12</span><div class="filmtag">In the Mood for Love</div></div></div>
      <div data-dc-tpl="72" style="flex: 1 1 0%; display: flex; flex-direction: column; justify-content: center; padding: 0px 20px;">
       <div data-dc-tpl="73" class="row" style="gap: 8px; margin-bottom: 16px;"><div data-dc-tpl="74" class="av" style="width: 24px; height: 24px;"></div><span data-dc-tpl="75" style="font-size: 12.5px; font-weight: 500;">Naomi</span><span data-dc-tpl="76" class="mono mut" style="font-size: 11px;">0:47:12</span></div>
       <div data-dc-tpl="77" class="serif" style="font-size: 23px; line-height: 1.5; padding-left: 12px; border-left: 2px solid var(--neon);">Watch the clock on the wall — Wong Kar-wai never lets you forget the time they're wasting.</div>
@@ -601,7 +615,7 @@
    <div data-dc-tpl="90" class="ph" style="filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
     <div data-dc-tpl="91" class="sb"><span data-dc-tpl="92" class="mono">8:47</span><span data-dc-tpl="93">selekt</span><span data-dc-tpl="94" class="mono">▮▮</span></div>
     <div data-dc-tpl="95" class="scr night">
-     <div data-dc-tpl="96" class="hb row" style="padding: 9px 14px; justify-content: space-between;"><div data-dc-tpl="97" class="row" style="gap: 7px;"><span data-dc-tpl="98" class="onair"><span data-dc-tpl="99" class="odot"></span>ON AIR</span></div><span data-dc-tpl="100" class="mono blue" style="font-size: 11px;">0:47</span></div>
+     <div data-dc-tpl="96" class="hb row" style="padding: 9px 14px; justify-content: space-between;"><div data-dc-tpl="97" class="row" style="gap: 7px;"><span data-dc-tpl="98" class="onair"><span data-dc-tpl="99" class="odot"></span>ON AIR</span></div><div style="text-align: right;"><span data-dc-tpl="100" class="mono blue" style="font-size: 11px;">0:47</span><div class="filmtag">In the Mood for Love</div></div></div>
      <div data-dc-tpl="101" style="flex: 1 1 0%; overflow: hidden; padding: 10px 13px; display: flex; flex-direction: column; gap: 11px;">
       <div data-dc-tpl="102" class="row" style="align-items: flex-start; gap: 7px;"><span data-dc-tpl="103" class="mono mut" style="font-size: 10.5px; width: 34px;">mona</span><span data-dc-tpl="104" class="ln" style="width: 60%; margin-top: 3px;"></span></div>
       <div data-dc-tpl="105" class="row" style="align-items: flex-start; gap: 7px;"><span data-dc-tpl="106" class="mono mut" style="font-size: 10.5px; width: 34px;">devin</span><span data-dc-tpl="107" class="ln" style="width: 44%; margin-top: 3px;"></span></div>
@@ -617,31 +631,111 @@
 
   
   <div data-dc-tpl="123" class="dv-opt" id="1d">
-   <div data-dc-tpl="124" class="dv-olabel"><a data-dc-tpl="125" class="dv-oid" href="#1d">1d</a> The live beats — T-0 · arrival · intermission · Telestrator · reel change</div>
+   <div data-dc-tpl="124" class="dv-olabel"><a data-dc-tpl="125" class="dv-oid" href="#1d">1d</a> The pre-show + live beats — lobby · calls · leader · curtains · chat · notes · intermission · Telestrator · reel change</div>
    <div data-dc-tpl="126" style="display: flex; gap: 40px; flex-wrap: wrap;">
 
     <div style="display: flex; flex-direction: column; gap: 8px;">
-     <span class="nlabel">① T-0 — the house goes dark</span>
-     <div class="ph" style="height: 520px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
-      <div class="sb"><span class="mono">8:00</span><span>selekt</span><span class="mono">▮▮</span></div>
-      <div class="scr" style="background: var(--curtain); position: relative; justify-content: center; align-items: center; text-align: center; overflow: hidden;">
-       <div style="position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: rgba(0,0,0,.35);"></div>
-       <div style="position: relative; z-index: 1; padding: 0 22px;">
-        <div class="mono t0-pre" style="font-size: 10px; letter-spacing: 0.16em; color: rgba(242,237,228,.55); margin-bottom: 16px;">T&#8209;0</div>
-        <div class="t0-post">
-         <span class="onair" style="justify-content: center; font-size: 15px; letter-spacing: 0.2em;"><span class="odot"></span>ON AIR</span>
-         <div class="serif" style="font-size: 13.5px; line-height: 1.6; color: rgba(242,237,228,.88); max-width: 210px; margin: 18px auto 0;">The house goes dark. The sign ignites. Every note fires from this clock.</div>
+     <span class="nlabel">① The lobby — doors at T&#8209;30</span>
+     <div class="ph">
+      <div class="sb"><span class="mono">7:33</span><span>selekt</span><span class="mono">▮▮</span></div>
+      <div class="scr night">
+       <div style="padding: 10px 12px 4px;">
+        <div class="marqbd">
+         <div class="bulbs" style="margin: -4px -6px 9px;"></div>
+         <div class="marqsub">Tonight · 8:00PM · 1H38M</div>
+         <div class="marqt" style="font-size: 17px; margin-top: 6px;">In the Mood<br>for Love</div>
+         <div class="marqsub" style="margin-top: 6px;">Hosted by Naomi</div>
+         <div class="mono" style="font-size: 22px; margin-top: 9px; color: #f4e4bc;">&minus;26:41</div>
+         <div class="marqsub" style="margin-top: 2px;">To showtime</div>
+         <div class="bulbs" style="margin: 9px -6px -4px;"></div>
         </div>
        </div>
+       <div style="flex: 1 1 0%; overflow: hidden; padding: 10px 13px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="row" style="align-items: flex-start; gap: 7px;"><span class="mono mut" style="font-size: 10.5px; width: 34px;">mona</span><span class="ln" style="width: 56%; margin-top: 3px;"></span></div>
+        <div class="row" style="align-items: flex-start; gap: 7px;"><span class="mono mut" style="font-size: 10.5px; width: 34px;">devin</span><span class="ln" style="width: 40%; margin-top: 3px;"></span></div>
+        <div class="row" style="align-items: flex-start; gap: 7px;"><span style="font-weight: 500; font-size: 11px; width: 34px; color: var(--tx);">Naomi</span><span style="font-size: 12px; line-height: 1.45; flex: 1;">No notes till the title card — settle in, cue your TV.</span></div>
+        <div class="row" style="align-items: flex-start; gap: 7px;"><span class="mono mut" style="font-size: 10.5px; width: 34px;">tess</span><span class="ln" style="width: 48%; margin-top: 3px;"></span></div>
+       </div>
+       <div class="row" style="padding: 9px 13px; border-top: 1px solid var(--bd); gap: 9px;"><div class="box" style="flex: 1 1 0%; height: 34px; border-style: solid; justify-content: flex-start; padding-left: 12px; color: var(--mut);">say something…</div><span class="mono mut" style="font-size: 9px;">142 seated</span></div>
+      </div>
+     </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+     <span class="nlabel">② The calls — T&#8209;10 &amp; T&#8209;1</span>
+     <div class="ph" style="height: 520px;">
+      <div class="sb"><span class="mono">7:50</span><span>selekt</span><span class="mono">▮▮</span></div>
+      <div class="scr night" style="position: relative; justify-content: center; align-items: center; text-align: center;">
+       <div class="toast" style="text-align: left;">
+        <div class="row" style="justify-content: space-between;"><span class="marqsub" style="font-size: 8px;">Selekt</span><span class="mono mut" style="font-size: 9px;">now</span></div>
+        <div style="font-size: 12.5px; font-weight: 500; margin-top: 3px;">10 minutes to showtime</div>
+        <div class="mut" style="font-size: 11px;">In the Mood for Love · take your seat</div>
+       </div>
+       <div class="marqsub">In the Mood for Love</div>
+       <div class="mono" style="font-size: 40px; margin: 10px 0 4px; color: #f4e4bc;">&minus;10:00</div>
+       <div class="marqsub">To showtime</div>
+       <div class="mono mut" style="font-size: 10px; margin-top: 18px; max-width: 210px;">same call at &minus;1:00 — "cue the film on your TV"</div>
+      </div>
+     </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+     <span class="nlabel">③ The leader — 15 seconds</span>
+     <div class="ph" style="height: 520px;">
+      <div class="sb"><span class="mono">7:59</span><span>selekt</span><span class="mono">▮▮</span></div>
+      <div class="scr" style="background: #0c0b09; position: relative; justify-content: center; align-items: center; text-align: center;">
+       <div class="marqsub" style="margin-bottom: 14px;">In the Mood for Love</div>
+       <div style="position: relative; width: 190px; height: 190px;">
+        <svg viewBox="0 0 200 200" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+         <circle cx="100" cy="100" r="88" fill="none" stroke="#d8d2c6" stroke-opacity=".45" stroke-width="1.5"></circle>
+         <circle cx="100" cy="100" r="72" fill="none" stroke="#d8d2c6" stroke-opacity=".2" stroke-width="1"></circle>
+         <path d="M0 100 H200 M100 0 V200" stroke="#d8d2c6" stroke-opacity=".18" stroke-width="1"></path>
+         <g class="sweep"><path d="M100 100 L100 14" stroke="#d8d2c6" stroke-opacity=".7" stroke-width="2"></path></g>
+        </svg>
+        <div class="mono" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 58px; color: #e7e3da;">15</div>
+       </div>
+       <div class="mono mut" style="font-size: 10px; margin-top: 16px;">the room counts down together</div>
+      </div>
+     </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+     <span class="nlabel">④ T-0 — the curtains part</span>
+     <div class="ph" style="height: 520px;">
+      <div class="sb"><span class="mono">8:00</span><span>selekt</span><span class="mono">▮▮</span></div>
+      <div class="scr night" style="position: relative; overflow: hidden; justify-content: center; align-items: center; text-align: center;">
+       <div style="position: relative; z-index: 1; padding: 0 22px;">
+        <span class="onair silver" style="justify-content: center; font-size: 15px; letter-spacing: 0.2em;"><span class="odot"></span>ON AIR</span>
+        <div class="filmtag" style="margin-top: 14px;">In the Mood for Love · 0:00:04</div>
+       </div>
+       <div class="curt curtL"></div>
+       <div class="curt curtR"></div>
+      </div>
+     </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+     <span class="nlabel">⑤ The room before the first note</span>
+     <div class="ph" style="height: 520px;">
+      <div class="sb"><span class="mono">8:03</span><span>selekt</span><span class="mono">▮▮</span></div>
+      <div class="scr night">
+       <div class="hb row" style="padding: 9px 14px; justify-content: space-between;"><span class="onair"><span class="odot"></span>ON AIR</span><div style="text-align: right;"><div class="mono blue" style="font-size: 11px;">0:03:22</div><div class="filmtag">In the Mood for Love</div></div></div>
+       <div style="flex: 1 1 0%; overflow: hidden; padding: 10px 13px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px;">
+        <div class="row" style="align-items: flex-start; gap: 7px;"><span class="mono mut" style="font-size: 10.5px; width: 34px;">mona</span><span class="ln" style="width: 58%; margin-top: 3px;"></span></div>
+        <div class="row" style="align-items: flex-start; gap: 7px;"><span class="mono mut" style="font-size: 10.5px; width: 34px;">devin</span><span style="font-size: 12px; line-height: 1.45; flex: 1;">that opening shot…</span></div>
+        <div class="row" style="align-items: flex-start; gap: 7px;"><span class="mono mut" style="font-size: 10.5px; width: 34px;">tess</span><span class="ln" style="width: 44%; margin-top: 3px;"></span></div>
+       </div>
+       <div class="row" style="padding: 9px 13px; border-top: 1px solid var(--bd); gap: 9px;"><div class="box" style="flex: 1 1 0%; height: 34px; border-style: solid; justify-content: flex-start; padding-left: 12px; color: var(--mut);">say something…</div><div class="chip">react</div></div>
       </div>
      </div>
     </div>
 
     <div data-dc-tpl="127" style="display: flex; flex-direction: column; gap: 8px;">
-     <span data-dc-tpl="128" class="nlabel">② Liner Note arrives</span>
+     <span data-dc-tpl="128" class="nlabel">⑥ Liner Note arrives</span>
      <div data-dc-tpl="129" class="ph" style="height: 520px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
       <div data-dc-tpl="130" class="sb"><span data-dc-tpl="131" class="mono">8:47</span><span data-dc-tpl="132">selekt</span><span data-dc-tpl="133" class="mono">▮▮</span></div>
       <div data-dc-tpl="134" class="scr night">
+       <div class="hb row" style="padding: 9px 14px; justify-content: space-between;"><span class="filmtag">In the Mood for Love</span><span class="mono blue" style="font-size: 10.5px;">0:47:02</span></div>
        <div data-dc-tpl="135" style="flex: 1 1 0%; display: flex; flex-direction: column; justify-content: center; padding: 0px 18px;">
         <div data-dc-tpl="136" class="liner now arrive" style="background: var(--s2);"><div data-dc-tpl="137" class="row" style="gap: 7px; margin-bottom: 6px;"><span data-dc-tpl="138" style="font-weight: 500; font-size: 12px;">Naomi</span><span data-dc-tpl="139" class="mono mut" style="font-size: 10px;">0:47</span></div><div data-dc-tpl="140" class="serif" style="font-size: 17px; line-height: 1.55;">Watch the clock on the wall.</div></div>
        </div>
@@ -651,10 +745,11 @@
     </div>
 
     <div data-dc-tpl="143" style="display: flex; flex-direction: column; gap: 8px;">
-     <span data-dc-tpl="144" class="nlabel">③ Intermission — the lobby</span>
+     <span data-dc-tpl="144" class="nlabel">⑦ Intermission</span>
      <div data-dc-tpl="145" class="ph" style="height: 520px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
       <div data-dc-tpl="146" class="sb"><span data-dc-tpl="147" class="mono">8:55</span><span data-dc-tpl="148">selekt</span><span data-dc-tpl="149" class="mono">▮▮</span></div>
       <div data-dc-tpl="150" class="scr" style="align-items: center; justify-content: center; text-align: center; padding: 26px;">
+       <div class="filmtag" style="margin-bottom: 12px;">In the Mood for Love · paused 0:55</div>
        <div data-dc-tpl="151" class="disp mut" style="font-size: 11px; letter-spacing: 0.18em;">Intermission</div>
        <div data-dc-tpl="152" class="mono" style="font-size: 60px; line-height: 1; margin: 14px 0px 10px; font-weight: 400;">14:22</div>
        <div data-dc-tpl="153" class="serif" style="font-size: 15px; line-height: 1.55; color: var(--mut); max-width: 200px;">Stretch your legs. We pick it up together — pause your TV.</div>
@@ -665,10 +760,11 @@
     </div>
 
     <div data-dc-tpl="156" style="display: flex; flex-direction: column; gap: 8px;">
-     <span data-dc-tpl="157" class="nlabel">④ Telestrator — the telescope</span>
+     <span data-dc-tpl="157" class="nlabel">⑧ Telestrator — the telescope</span>
      <div data-dc-tpl="158" class="ph" style="height: 520px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
       <div data-dc-tpl="159" class="sb"><span data-dc-tpl="160" class="mono">8:58</span><span data-dc-tpl="161">selekt</span><span data-dc-tpl="162" class="mono">▮▮</span></div>
       <div data-dc-tpl="163" class="scr night" style="justify-content: center; padding: 16px;">
+       <div class="filmtag" style="text-align: center; margin-bottom: 8px;">In the Mood for Love · 0:58</div>
        <div data-dc-tpl="164" class="onair" style="justify-content: center; margin-bottom: 12px;">the curator is looking here</div>
        <div data-dc-tpl="165" class="box" style="height: 170px; border-color: var(--bd); color: var(--mut); position: relative; overflow: hidden; background: rgb(13, 15, 24);">film still
         <svg data-dc-tpl="166" class="telescope-mark" viewBox="0 0 100 60" style="position: absolute; inset: 0px; width: 100%; height: 100%;"><ellipse data-dc-tpl="167" cx="36" cy="30" rx="15" ry="12" fill="none" stroke="#ff4fd8" stroke-width="1.4"></ellipse><path data-dc-tpl="168" d="M53 29 L76 21" stroke="#ff4fd8" stroke-width="1.4" fill="none"></path><path data-dc-tpl="169" d="M72 19 l5 1 -1 5" stroke="#ff4fd8" stroke-width="1.4" fill="none"></path></svg>
@@ -679,11 +775,11 @@
     </div>
 
     <div data-dc-tpl="173" style="display: flex; flex-direction: column; gap: 8px;">
-     <span data-dc-tpl="174" class="nlabel">⑤ Reel change (resync + away)</span>
+     <span data-dc-tpl="174" class="nlabel">⑨ Reel change (resync + away)</span>
      <div data-dc-tpl="175" class="ph" style="height: 520px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
       <div data-dc-tpl="176" class="sb"><span data-dc-tpl="177" class="mono">9:10</span><span data-dc-tpl="178">selekt</span><span data-dc-tpl="179" class="mono">▮▮</span></div>
       <div data-dc-tpl="180" class="scr night">
-       <div data-dc-tpl="181" style="padding: 16px 16px 8px;"><div data-dc-tpl="182" class="disp" style="font-size: 15px;">Welcome back</div><div data-dc-tpl="183" class="mono mut" style="font-size: 10.5px; margin-top: 3px;">you stepped out — 2 notes since</div></div>
+       <div data-dc-tpl="181" style="padding: 16px 16px 8px;"><div data-dc-tpl="182" class="disp" style="font-size: 15px;">Welcome back</div><div data-dc-tpl="183" class="mono mut" style="font-size: 10.5px; margin-top: 3px;">you stepped out — 2 notes since</div><div class="filmtag" style="margin-top: 5px;">In the Mood for Love · you're at 1:00</div></div>
        <div data-dc-tpl="184" style="flex: 1 1 0%; padding: 8px 16px; display: flex; flex-direction: column; gap: 9px;">
         <div data-dc-tpl="185" class="liner" style="padding: 9px 11px;"><div data-dc-tpl="186" class="mono mut" style="font-size: 10px; margin-bottom: 3px;">0:52</div><div data-dc-tpl="187" class="serif" style="font-size: 14px; line-height: 1.5;">The color grading shifts warmer here.</div></div>
         <div data-dc-tpl="188" class="liner" style="padding: 9px 11px;"><div data-dc-tpl="189" class="mono mut" style="font-size: 10px; margin-bottom: 3px;">0:59</div><div data-dc-tpl="190" class="serif" style="font-size: 14px; line-height: 1.5;">Listen for the Nat King Cole cue.</div></div>
@@ -695,7 +791,7 @@
     </div>
 
    </div>
-   <p data-dc-tpl="195" class="anno">The signature is T-0 — the curtain closes to oxblood, then the ON AIR sign ignites through it. Notes fade up like subtitles. Intermission is the lobby — mono numerals, no glow, beautiful and empty. Desync is never a failure, it's a reel change.</p>
+   <p data-dc-tpl="195" class="anno" style="max-width: 460px;">Doors at T&#8209;30: the lobby is a marquee and an open chat with the curator. The house calls at &minus;10:00 and &minus;1:00; at &minus;0:15 a film leader takes the screen and the room counts down together; on zero the curtains peel back and the sign ignites silver. Until Naomi's first note lands, chat is the primary surface — and the film's title and timecode never leave the screen. Intermission stays matte and empty. Desync is never a failure, it's a reel change.</p>
   </div>
 
   
@@ -758,7 +854,7 @@
    <div data-dc-tpl="281" class="ph" style="filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
     <div data-dc-tpl="282" class="sb"><span data-dc-tpl="283" class="mono">5:20</span><span data-dc-tpl="284"></span><span data-dc-tpl="285" class="mono">▮▮</span></div>
     <div data-dc-tpl="286" class="scr">
-     <div data-dc-tpl="287" class="hb row" style="padding: 15px 16px; justify-content: space-between;"><div data-dc-tpl="288"><div data-dc-tpl="289" class="disp" style="font-size: 17px;">The marquee</div><div data-dc-tpl="290" class="mono mut" style="font-size: 10.5px; margin-top: 2px;">THU · JUL 10</div></div><div data-dc-tpl="291" class="av" style="width: 30px; height: 30px;"></div></div>
+     <div data-dc-tpl="287" class="hb row" style="padding: 15px 16px; justify-content: space-between;"><div data-dc-tpl="288"><div data-dc-tpl="289" class="disp" style="font-size: 17px;">The marquee</div><div data-dc-tpl="290" class="mono mut" style="font-size: 10.5px; margin-top: 2px;">THU · JUL 10</div><div class="bulbs" style="width: 92px; margin-top: 6px;"></div></div><div data-dc-tpl="291" class="av" style="width: 30px; height: 30px;"></div></div>
      <div data-dc-tpl="292" style="flex: 1 1 0%; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 16px;">
       <div data-dc-tpl="293">
        <span data-dc-tpl="294" class="onair"><span data-dc-tpl="295" class="odot"></span>ON AIR NOW</span>
@@ -770,7 +866,7 @@
       <div data-dc-tpl="301" class="box" style="border-style: solid; border-radius: 12px; flex-direction: column; align-items: stretch; padding: 0px; overflow: hidden;">
        <div data-dc-tpl="302" class="box" style="height: 118px; border-top-width: medium; border-right-width: medium; border-bottom: 1px solid var(--bd); border-left-width: medium; border-top-style: none; border-right-style: none; border-left-style: none; border-top-color: currentcolor; border-right-color: currentcolor; border-left-color: currentcolor; border-image: initial; border-radius: 0px; color: var(--mut);">one-sheet</div>
        <div data-dc-tpl="303" style="padding: 12px 13px; text-align: left;">
-        <span data-dc-tpl="304" class="mono mut" style="font-size: 10px;">TONIGHT · 8:00PM · IN 2H40</span>
+        <span data-dc-tpl="304" class="mono mut" style="font-size: 10px;">TONIGHT · 8:00PM · 1H38M · IN 2H40</span>
         <div data-dc-tpl="305" class="disp" style="font-size: 16px; margin-top: 5px;">In the Mood for Love</div>
         <div data-dc-tpl="306" class="serif mut" style="font-size: 13px; margin-top: 4px; line-height: 1.5;">"The most romantic film about not touching ever made." — Naomi</div>
         <div data-dc-tpl="307" class="row" style="justify-content: space-between; margin-top: 11px;"><span data-dc-tpl="308" class="mono mut" style="font-size: 10px;">34 going · 3 friends</span><span data-dc-tpl="309" class="btn-neon" style="padding: 7px 16px; font-size: 12px;">Reserve</span></div>
@@ -799,7 +895,7 @@
       <div data-dc-tpl="344" class="row hb" style="border: 1px solid var(--bd); border-radius: 8px; padding: 11px 13px; justify-content: space-between;"><span data-dc-tpl="345" class="mono" style="font-size: 13px;">TONIGHT · 8:00PM</span><span data-dc-tpl="346" class="mono blue" style="font-size: 11px;">in 2h 40m</span></div>
       <div data-dc-tpl="347"><div data-dc-tpl="348" class="mono mut" style="font-size: 10px; letter-spacing: 0.08em; margin-bottom: 6px;">WHY NAOMI PICKED IT</div><div data-dc-tpl="349" class="serif" style="font-size: 15px; line-height: 1.6;">I come back to this one every year. It's about the space between two people — and how much a hallway can hold.</div></div>
       <div data-dc-tpl="350"><div data-dc-tpl="351" class="mono mut" style="font-size: 10px; letter-spacing: 0.08em; margin-bottom: 7px;">MAKE SURE YOU CAN PLAY IT</div><div data-dc-tpl="352" class="row" style="gap: 7px;"><span data-dc-tpl="353" class="chip">▶ MUBI</span><span data-dc-tpl="354" class="chip mut">rent $3.99</span></div></div>
-      <div data-dc-tpl="355"><div data-dc-tpl="356" class="mono mut" style="font-size: 10px; letter-spacing: 0.08em; margin-bottom: 7px;">THE ROOM</div><div data-dc-tpl="357" class="row"><div data-dc-tpl="358" class="av" style="width: 26px; height: 26px;"></div><div data-dc-tpl="359" class="av" style="width: 26px; height: 26px; margin-left: -7px;"></div><div data-dc-tpl="360" class="av" style="width: 26px; height: 26px; margin-left: -7px;"></div><span data-dc-tpl="361" class="mono mut" style="font-size: 10px; margin-left: 9px;">34 · incl. 3 friends</span></div></div>
+      <div data-dc-tpl="355"><div data-dc-tpl="356" class="mono mut" style="font-size: 10px; letter-spacing: 0.08em; margin-bottom: 7px;">THE ROOM</div><div data-dc-tpl="357" class="row"><div data-dc-tpl="358" class="av" style="width: 26px; height: 26px;"></div><div data-dc-tpl="359" class="av" style="width: 26px; height: 26px; margin-left: -7px;"></div><div data-dc-tpl="360" class="av" style="width: 26px; height: 26px; margin-left: -7px;"></div><span data-dc-tpl="361" class="mono mut" style="font-size: 10px; margin-left: 9px;">34 · incl. 3 friends</span></div><div class="filmtag" style="margin-top: 8px;">Lobby opens 7:30 — chat before the show</div></div>
      </div>
      <div data-dc-tpl="362" style="padding: 12px 14px; border-top: 1px solid var(--bd);"><div data-dc-tpl="363" class="btn-neon">Reserve a seat</div></div>
     </div>
@@ -962,7 +1058,7 @@
       <div data-dc-tpl="614" class="scr" style="justify-content: space-between; padding: 22px 20px;">
        <div data-dc-tpl="615" class="disp" style="font-size: 15px;">Start the session</div>
        <div data-dc-tpl="616" style="text-align: center;">
-        <div data-dc-tpl="617" class="mono mut" style="font-size: 10px; letter-spacing: 0.14em;">GATES OPEN IN</div>
+        <div data-dc-tpl="617" class="mono mut" style="font-size: 10px; letter-spacing: 0.14em;">CURTAINS PART IN</div>
         <div data-dc-tpl="618" class="mono" style="font-size: 52px; line-height: 1; margin: 10px 0px; font-weight: 400;">00:41</div>
         <div data-dc-tpl="619" class="serif mut" style="font-size: 14px; line-height: 1.55; max-width: 210px; margin: 0px auto;">Cue the film on your TV. On zero, press play on both — your notes fire from that moment.</div>
        </div>
@@ -980,7 +1076,7 @@
      <div data-dc-tpl="630" class="ph" style="height: 560px; filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 24px 50px) !important; box-shadow: rgb(5, 5, 6) 0px 0px 0px 2px, rgb(30, 31, 35) 0px 0px 0px 10px, rgb(58, 59, 65) 0px 0px 0px 11px !important;">
       <div data-dc-tpl="631" class="sb"><span data-dc-tpl="632" class="mono">8:47</span><span data-dc-tpl="633">selekt · host</span><span data-dc-tpl="634" class="mono">▮▮</span></div>
       <div data-dc-tpl="635" class="scr night">
-       <div data-dc-tpl="636" class="hb row" style="padding: 10px 14px; justify-content: space-between;"><span data-dc-tpl="637" class="onair"><span data-dc-tpl="638" class="odot"></span>ON AIR</span><span data-dc-tpl="639" class="mono mut" style="font-size: 10.5px;">0:46 · 142 seated</span></div>
+       <div data-dc-tpl="636" class="hb row" style="padding: 10px 14px; justify-content: space-between;"><span data-dc-tpl="637" class="onair"><span data-dc-tpl="638" class="odot"></span>ON AIR</span><div style="text-align: right;"><span data-dc-tpl="639" class="mono mut" style="font-size: 10.5px;">0:46 · 142 seated</span><div class="filmtag">In the Mood for Love</div></div></div>
        <div data-dc-tpl="640" style="flex: 1 1 0%; padding: 12px 14px; display: flex; flex-direction: column; gap: 12px; overflow: hidden;">
         <div data-dc-tpl="641" class="mono blue" style="font-size: 10.5px; letter-spacing: 0.06em;">◆ NOTES FIRING AUTOMATICALLY</div>
         <div data-dc-tpl="642"><div data-dc-tpl="643" class="mono mut" style="font-size: 10px; margin-bottom: 6px;">NEXT</div><div data-dc-tpl="644" class="liner now" style="padding: 10px 12px;"><div data-dc-tpl="645" class="serif" style="font-size: 15px; line-height: 1.5;">Watch the cheongsams — a clock and a mood ring.</div><div data-dc-tpl="646" class="mono blue" style="font-size: 10px; margin-top: 6px;">fires in 0:38</div></div></div>
@@ -997,7 +1093,7 @@
   </div>
 
  </div>
- <p data-dc-tpl="656" class="dv-next">Try next: “take <a data-dc-tpl="657" href="#1a">1a</a> to hi-fi with a real still” · “try the T-0 going-live ignition as its own screen” · “make the marquee <a data-dc-tpl="658" href="#1f">1f</a> denser” · “show the New Wave tricolor Howl share card” · “dial the neon back further on <a data-dc-tpl="659" href="#1f">1f</a>”.</p></section></div></div>
+ <p data-dc-tpl="656" class="dv-next">Try next: “take <a data-dc-tpl="657" href="#1a">1a</a> to hi-fi with a real still” · “storyboard the curtain-part frame by frame” · “make the marquee <a data-dc-tpl="658" href="#1f">1f</a> denser” · “show the New Wave tricolor Howl share card” · “dial the neon back further on <a data-dc-tpl="659" href="#1f">1f</a>”.</p></section></div></div>
 
 
 <style>@media print{@page{size:1180px 5025px;margin:0}html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}[data-om-frame]{margin:0!important}}</style></body><style>#matter-popup-app {
